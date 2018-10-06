@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', homeCtrl);
-app.get('/ATriggerVerify.txt', (req, res) => { res.sendFile("ATriggerVerify.txt"); });
+app.get('/ATriggerVerify.txt', (req, res) => { res.sendFile("./ATriggerVerify.txt"); });
 app.get('/success', (req, res) => { res.send("Success"); });
 app.get('/duringthistime', verifyIdToken, leaveCtrl.duringthistime);
 
