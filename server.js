@@ -24,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', homeCtrl);
-app.get('/success', (req, res) => { res.send("Success"); })
+app.get('/ATriggerVerify.txt', (req, res) => { res.send("Success"); });
+app.get('/success', (req, res) => { res.sendFile("ATriggerVerify.txt"); })
 app.get('/duringthistime', verifyIdToken, leaveCtrl.duringthistime);
 
 app.post('/email/trigger/requested', verifyIdToken, leaveCtrl.getLeaveByID, emailValidationCtrl.validate, emailCtrl.requested, mailDispatcher.dispatch, notifyCtrl.notifyManager, mailDispatcher.finish);
